@@ -1,4 +1,13 @@
-// test for file utility
+/**
+ * @file main.cpp
+ * @author Noah Melton and Jose Jaime
+ * @date 2025-02-20
+ * @brief Image Stacker assignment
+ * 
+ * This program averages 10 noisy images into one final high-quality image.
+ */
+
+
 
 #include <iostream>
 #include <fstream>
