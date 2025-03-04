@@ -58,7 +58,7 @@ int main()
       ostringstream ss;
       ss << setw(3) << setfill('0') << i;
       string numberStr = ss.str(); 
-        string filename = image + "/" + image + "_" numberStr + ".ppm";
+        string filename = image + "/" + image + "_" + numberStr + ".ppm";
         filenames.push_back(filename);
         cout << "     " << filename << endl;
     }

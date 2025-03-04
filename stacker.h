@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <vector>
 
 
@@ -26,6 +27,7 @@ struct pixel {
   
 class stacker {
 
+public:
   string magic_number;
   int width;
   int height;
@@ -33,7 +35,14 @@ class stacker {
  
   vector <pixel> pixels; 
 
+  bool readPPM(const string& filename) {
 
+    ifstream file(filename);
+    if(!file) {
+      cerr << "Could not open the file! << endl; 
+    
+    ////Still working on this part//// 
+    }
 
 
 
