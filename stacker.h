@@ -39,13 +39,53 @@ public:
 
     ifstream file(filename);
     if(!file) {
-      cerr << "Could not open the file! << endl; 
+      cerr << "Could not open the file!" << endl; 
+    return false; 
+  
+    } 
+      file >> magic_number;
+      if(magic_number != "P3") {
+      cerr << "ERROR" << endl;
+      return false; 
+      }
+      
+      file >> width;
+      file >> height;
+      file >> max_color;
+
+      pixels.clear(); 
+      for(int i = 0; i < width * height; i++) {
+        pixel p; 
+	file >> p.red >> p.green >> p.blue;
+        pixels.push_back(p);
+      }
+      
+      return true; 
+
+    }
+
+  bool writePPM(const string& filename) {
+
     
-    ////Still working on this part//// 
+    ofstream file(filename);
+    if(!file) {
+
+      cerr << "Error, could not open file" << endl;
+      return false; 
+      
     }
 
 
+    file << magic_number << "\n" << endl;
+    file << width << " " << height << "\n" << max_color << "\n"; 
 
+    for(const auto& p : pixels) {
+
+      file << p.red << " " << p.green << " " << p.blue << "\n"; 
+    }
+    
+    return true;
+  }
 }; 
 
 #endif
