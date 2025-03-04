@@ -16,14 +16,22 @@
 #include <vector>
 
 
+
+struct pixel {
+
+  int red;
+  int green;
+  int blue;
+};
+  
 class stacker {
 
   string magic_number;
   int width;
   int height;
   int max_color;
-  struct pixel;
-  vector pixels; 
+ 
+  vector <pixel> pixels; 
 
 
 
