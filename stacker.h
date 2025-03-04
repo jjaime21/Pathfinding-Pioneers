@@ -7,3 +7,28 @@
  * Header file for the stacker class
  */
 
+
+#ifndef STACKER_H
+#define STACKER_H
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+
+class stacker {
+
+  string magic_number;
+  int width;
+  int height;
+  int max_color;
+  struct pixel;
+  vector pixels; 
+
+
+
+
+
+}; 
+
+#endif
