@@ -41,6 +41,6 @@ int main()
     
 
     cout << "it works" <<endl;
-
+    stack.writePPM(image);
     return 0;
 }
