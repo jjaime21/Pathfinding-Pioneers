@@ -10,13 +10,13 @@
 
 #ifndef STACKER_H
 #define STACKER_H
-
+#include <iomanip>
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <vector>
 
-
+using namespace std;
 
 struct pixel {
 
@@ -35,43 +35,61 @@ public:
  
   vector <pixel> pixels; 
 
-  bool readPPM(const string& filename) {
+  void readPPM(const string& filename,int fileAmount) {
 
-    ifstream file(filename);
+    int i = 0; 
+    while(fileAmount > 0) {
+
+
+      ostringstream ss;                                                         
+      ss << setw(3) << setfill('0') << i;                                       
+      string numberStr = ss.str();                                              
+      string image = filename + "/" + filename + "_" + numberStr + ".ppm"; 
+
+    ifstream file; 
+    file.open(filename);
     if(!file) {
       cerr << "Could not open the file!" << endl; 
-    return false; 
+    return; 
   
-    } 
+    }
+
+
+   
       file >> magic_number;
       if(magic_number != "P3") {
       cerr << "ERROR" << endl;
-      return false; 
+      return; 
       }
       
       file >> width;
       file >> height;
       file >> max_color;
 
-      pixels.clear(); 
+      pixels.resize(height * width); 
       for(int i = 0; i < width * height; i++) {
         pixel p; 
 	file >> p.red >> p.green >> p.blue;
-        pixels.push_back(p);
+        pixels[i].red += p.red;
+	pixels[i].green += p.green;
+	pixels[i].blue += p.blue;
       }
       
-      return true; 
-
     }
 
-  bool writePPM(const string& filename) {
+    i++;
+    fileAmount--;
+  }
+
+  void writePPM(const string& filename) {
 
     
-    ofstream file(filename);
+    ofstream file;
+    file.open(filename); 
     if(!file) {
 
       cerr << "Error, could not open file" << endl;
-      return false; 
+      return; 
       
     }
 
@@ -83,9 +101,10 @@ public:
 
       file << p.red << " " << p.green << " " << p.blue << "\n"; 
     }
-    
-    return true;
+
+   
   }
+  
 }; 
 
 #endif
