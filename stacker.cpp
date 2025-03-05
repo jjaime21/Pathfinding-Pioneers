@@ -25,6 +25,7 @@ stacker::stacker() {
 
 void stacker::readPPM(const string& filename,int fileAmount) {
 
+
     int i = 1; 
     while(fileAmount > 0) {
 
@@ -87,11 +88,10 @@ void stacker::writePPM(const string& filename) {
     file << magic_number << "\n" << endl;
     file << width << " " << height << "\n" << max_color << "\n"; 
 
+   
     for(const auto& p : pixels) {
 
       file << p.red << " " << p.green << " " << p.blue << "\n"; 
     }
-
-   
-  }
  
+}
