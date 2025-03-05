@@ -40,7 +40,7 @@ int main()
     stack.readPPM(image,numImages);
     
 
-    cout << "it works" <<endl;
+ 
     stack.writePPM(image);
     return 0;
 }

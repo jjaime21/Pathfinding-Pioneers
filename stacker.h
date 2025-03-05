@@ -33,84 +33,25 @@ public:
   int height;
   int max_color;
  
-  vector <pixel> pixels; 
+  vector <pixel> pixels;
 
+  stacker();
+  
+  /*
   stacker(){
     width = 0;
     height = 0;
     max_color = 0;
     magic_number = ""; 
   }
-  void readPPM(const string& filename,int fileAmount) {
 
-    int i = 1; 
-    while(fileAmount > 0) {
+  **/
+  void readPPM(const string& filename,int fileAmount);
 
-
-      ostringstream ss;                                                         
-      ss << setw(3) << setfill('0') << i;                                       
-      string numberStr = ss.str();                                              
-      string image = "./" +  filename  + "/" + filename + "_" + numberStr + ".ppm"; 
-
-    ifstream file; 
-    file.open(image);
-    if(!file) {
-      cerr << "Could not open the file!" << endl; 
-    return; 
-  
-    }
-
-
-   
-      file >> magic_number;
-      if(magic_number != "P3") {
-	cout << magic_number; 
-	cerr << "ERROR" << endl;
-      return; 
-      }
-      
-      file >> width;
-      file >> height;
-      file >> max_color;
-
-      pixels.resize(height * width); 
-      for(int i = 0; i < width * height; i++) {
-        pixel p; 
-	file >> p.red >> p.green >> p.blue;
-        pixels[i].red += p.red;
-	pixels[i].green += p.green;
-	pixels[i].blue += p.blue;
-      }
-
-      fileAmount--;
-      i++;
-    }
-
-   }
-
-  void writePPM(const string& filename) {
+  void writePPM(const string& filename);
 
     
-    ofstream file;
-    file.open(filename + ".ppm"); 
-    if(!file) {
-
-      cerr << "Error, could not open file" << endl;
-      return; 
-      
-    }
-
-
-    file << magic_number << "\n" << endl;
-    file << width << " " << height << "\n" << max_color << "\n"; 
-
-    for(const auto& p : pixels) {
-
-      file << p.red << " " << p.green << " " << p.blue << "\n"; 
-    }
-
    
-  }
   
 }; 
 
