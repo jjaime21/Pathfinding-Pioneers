@@ -5,15 +5,17 @@
 # Makefile for compliling the Image Stacker project
 
 # Compiler
-CC = g++
+CXX = g++
 
-# Target Executable Name
-TARGET = stacker
+CXXFLAGS = -Wall -Wextra -g
 
-# Compile with all errors and warnings
-CFLAGS = -c -Wall -Wextra
+all: program
 
-# Default Target
-all: $(TARGET)
-
-#Link all object files into the final executable
+program: main.o stacker.o
+	$(CXX) $(CXXFLAGS) -o program main.o stacker.o
+main.o: main.cpp stacker.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
+stacker.o: stacker.cpp stacker.h
+	$(CXX) $(CXXFLAGS) -c stacker.cpp
+clean:
+	rm -f *.o *~ program
