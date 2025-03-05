@@ -25,7 +25,7 @@ stacker::stacker() {
 
 void stacker::readPPM(const string& filename,int fileAmount) {
 
-
+  int temp = fileAmount; 
     int i = 1; 
     while(fileAmount > 0) {
 
@@ -69,6 +69,16 @@ void stacker::readPPM(const string& filename,int fileAmount) {
       cout << image << endl;
       
     }
+
+    cout << temp; 
+    for(int i = 0; i < height * width; i++) {
+
+      pixels[i].red = pixels[i].red / temp;
+      pixels[i].green = pixels[i].green / temp;
+      pixels[i].blue = pixels[i].blue / temp; 
+
+    }
+    
     cout << "Stacking Succeeded." << endl;
     cout << "Output written to: " << filename << ".ppm" << endl;
    }
