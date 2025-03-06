@@ -27,7 +27,16 @@ struct pixel {
   int green;
   int blue;
 };
-  
+
+
+
+/**
+ * this is the stacker class which allows us to perform image stacking
+ *
+ * @class stacker stacker.h "Pathfinding-Pioneers/stacker.h"
+ * @brief This is where we have the methods that make image stacking possible
+ *
+ */
 class stacker {
 
 public:
