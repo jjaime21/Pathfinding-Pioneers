@@ -18,6 +18,9 @@
 
 using namespace std;
 
+
+//a basic struct- I got some help on this from chatgpt and Justin Finn at the STEM lab
+
 struct pixel {
 
   int red;
@@ -37,17 +40,32 @@ public:
 
   stacker();
   
-  /*
-  stacker(){
-    width = 0;
-    height = 0;
-    max_color = 0;
-    magic_number = ""; 
-  }
+/**
+ * This is the function that reads in the image pixel data. 
+ *
+ * @param const string& filename The name of the file that is to be read and used by the function. 
+ * @param int fileAmount The number of images to be stacked. 
+ * @pre This function must be passed a valid image with the correct formatting in order for it to work. 
+ * @return void No return type, this function just writes to a file. 
+ * @post 
+ * 
+ */
 
-  **/
+  // I got help on this function and the write ppm function from Justin Finn and chatgpt.
+  
   void readPPM(const string& filename,int fileAmount);
 
+  
+
+/**
+ * This is the function that writes the proper data (averaged pixel values) to a new file, which will be the finished image file. 
+ *
+ * @param const string& filename the name of the file to be stacked
+ * @pre This function requires a name for the output file. 
+ * @return void This function doesn't return anything. Instead, it creates a file that stores the pixel information for the finished image. 
+ * @post A new file is created with all of the necessary pixel data to display a nice, clean image. 
+ * 
+ */
   void writePPM(const string& filename);
 
     

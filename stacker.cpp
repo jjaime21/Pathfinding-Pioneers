@@ -15,6 +15,16 @@
 #include <vector>
 
 
+
+
+
+/**
+ * This is the constructor for the stacker class. 
+ *
+ * @pre N/A
+ * @post Initializes the stacker class
+ * 
+ */
 stacker::stacker() {
 
   magic_number = "";
@@ -23,6 +33,18 @@ stacker::stacker() {
   max_color = 0; 
 }
 
+
+
+/**
+ * This is the file which reads the data from the images before stacking. Then it takes that data, and modifies it so that the output file can have the averages pixel values. 
+ *
+ * @param const string& filename the name of the file 
+ * @param int fileAmount the number of times the image is to be stacked
+ * @pre This requires a valid image to pull data from. 
+ * @return void This function doesn't have a return type-instead it just reads in the data from the images so that they can be stacked. 
+ * @post The file is populated with the data that will be vital for the writePPM funciton. 
+ * 
+ */
 void stacker::readPPM(const string& filename,int fileAmount) {
 
   int temp = fileAmount; 
@@ -81,7 +103,19 @@ void stacker::readPPM(const string& filename,int fileAmount) {
     
     cout << "Stacking Succeeded." << endl;
     cout << "Output written to: " << filename << ".ppm" << endl;
-   }
+
+}
+
+
+/**
+ * This is the function which writes the final image data to a file so that the clean image can be displayed. 
+ *
+ * @param const string& filename the name of the file
+ * @pre the name of the file
+ * @return void This function does not return anything, instead it makes a new file which holds the image data of the clean image. 
+ * @post A new file is made which holds the averaged values of the pixels. The result is a clean image. 
+ * 
+ */
 void stacker::writePPM(const string& filename) {
 
     

@@ -18,7 +18,11 @@
 
 using namespace std;
 
+/**
 
+This is where we test the functionality of the program. I got some help on this program from Justin Finn as well as some initial help from chatgpt. 
+
+ **/ 
 
 
 int main()
